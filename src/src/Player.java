@@ -29,7 +29,7 @@ public class Player {
 	public boolean balanceExceedsLimitBy(int amount) {
 		// The balance only exceeds limit by the bet if the bet amount is greater than the balance
 		// The method should return true if the bet amount equals to the remaining balance
-		return (balance - amount > limit);
+		return (balance - amount >= limit);
 	}
 	
 	public void takeBet(int bet) {
