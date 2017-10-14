@@ -36,12 +36,30 @@ public class Player {
 		balance = balance - bet;
 	}
 	
+	public void returnBet(int bet) {
+		if (bet < 0) throw new IllegalArgumentException("Bet cannot be negative.");
+		if (!balanceExceedsLimitBy(bet)) throw new IllegalArgumentException("Placing bet would go below limit.");
+		balance = balance + bet;
+	}
+	
+	
 	public void receiveWinnings(int winnings) {
 		if (winnings < 0) throw new IllegalArgumentException("Winnings cannot be negative.");
-		balance = balance + winnings;		
+		// Roshan Basnet - adding test code to check incorrect balance increase
+		balance = balance + winnings;	
+		//System.out.println("DEBUGGING: Adding winnings of " + winnings + " to balance. Now balance: " + balance);		
 	}
 	
 	public String toString() {
 		return String.format("Player: %s, Balance: %d, Limit: %d", name, balance, limit);
+	}
+	/*
+	 * Author: Roshan Basnet
+	 * This method created returnsthe bet value to the player in case he wins a game
+	 * */
+	public void receiveBetReturned(int bet) {
+		balance = balance + bet;
+		System.out.println("----Player.java: bet of " + bet + " has been returned to " + this.getName() + ". Now he has: " + balance);
+		
 	}
 }
