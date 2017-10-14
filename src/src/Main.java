@@ -4,12 +4,32 @@ import java.io.*;
 public class Main {
 	
 	public static void main(String[] args) throws Exception {
+		int player_age;
 		
 	   BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 
         Dice d1 = new Dice();
         Dice d2 = new Dice();
         Dice d3 = new Dice();
+		
+		 // Code should be added here asking the player to input his age
+        while(true){
+        	System.out.print("Enter your age: ");
+        	try{
+        		player_age = Integer.parseInt(console.readLine());
+        		if(player_age > 0 && player_age < 100)
+        			break; // Valid age entered
+        	}catch(Exception e){
+        		// Invalid age
+        		System.out.println("Invalid age! Please try again!");
+        	}
+        	}
+        // Once age is read, it will be checked and the game will only continue if player's age greater than 18
+        if(player_age < 18){
+        	// Player is too young, game is not allowed to start
+        	System.out.println("Player under 18 is not allowed to play the game. Terminate now!");
+        	return;
+       }
 
         Player player = new Player("Fred", 100);
         Game game = new Game(d1, d2, d3);
