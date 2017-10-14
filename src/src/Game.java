@@ -43,8 +43,16 @@ public class Game {
 				matches += 1;
 			}
 		}
-		
+		System.out.println("----GAME.JAVA: number of match: " + matches); 
 		int winnings = matches * bet;
+		
+		if (matches > 0) {
+			// Player should have his bet returned here because he wins
+			System.out.println("----GAME.JAVA: Player wins, his bet of " + bet + " should be returned to his balance here!");
+ 			player.receiveWinnings(winnings);
+ 			player.receiveWinnings(winnings);
+			System.out.println("----GAME.JAVA: Player received winnings of " + winnings);
+			System.out.println("----GAME.JAVA: Now player has balance of: " + player.getBalance());
 
 		if (matches > 0) {			
 			player.receiveWinnings(winnings);
