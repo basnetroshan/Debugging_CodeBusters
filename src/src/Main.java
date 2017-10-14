@@ -45,15 +45,16 @@ public class Main {
                 	System.out.printf("Turn %d: %s bet %d on %s\n",
                 			turn, player.getName(), bet, pick); 
                 	
-                	int winnings = game.playRound(player, pick, bet);
+                	
 					
 					// Author: Roshan Basnet
                 	// Testing incorrect balance increase on winning
-                	System.out.println("----- Main.java: Start calculating winnings..." );
-					System.out.println("----- Main.java: Balance before play: " + player.getBalance());
+                	//System.out.println("----- Main.java: Start calculating winnings..." );
+					//System.out.println("----- Main.java: Balance before play: " + player.getBalance());
+					int winnings = game.playRound(player, pick, bet);
 					
-                    System.out.println("----- Main.java: Winning amount: " + winnings);
-					System.out.println("----- Main.java: Balance after play: " + player.getBalance());
+                    //System.out.println("----- Main.java: Winning amount: " + winnings);
+					//System.out.println("----- Main.java: Balance after play: " + player.getBalance());
 					
 					cdv = game.getDiceValues();
                     
@@ -70,6 +71,13 @@ public class Main {
 	                    		player.getName(), player.getBalance());
 	                	loseCount++;
                     }
+					
+					 // Roshan Basnet - code added to test the loop of it continues when balance still positive
+                    System.out.println("---- Debugging: Now balance: " + player.getBalance() + ". Bet: " + bet);
+                    System.out.println("---- Does balance exceeds limit by " + bet + "?: " + player.balanceExceedsLimitBy(bet));
+                    System.out.println("---- Is balance less than 200?: " + (player.getBalance() < 200));
+                    System.out.println("---- Will the loop continue?: " + (player.balanceExceedsLimitBy(bet) && player.getBalance()<200));
+                  
                     
                 } //while
 
