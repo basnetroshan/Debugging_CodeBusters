@@ -51,12 +51,16 @@ public class Main {
                 	// Testing incorrect balance increase on winning
                 	//System.out.println("----- Main.java: Start calculating winnings..." );
 					//System.out.println("----- Main.java: Balance before play: " + player.getBalance());
+					
+					// Roshan Basnet Bug 3: DiceValues remain the same all the time
+                	System.out.println("--- BUG 3 detector: old dice values: " + cdv.get(0) + "," + cdv.get(1) + "," + cdv.get(2));
 					int winnings = game.playRound(player, pick, bet);
 					
                     //System.out.println("----- Main.java: Winning amount: " + winnings);
 					//System.out.println("----- Main.java: Balance after play: " + player.getBalance());
 					
 					cdv = game.getDiceValues();
+					System.out.println("--- BUG 3 detector: new dice values: " + cdv.get(0) + "," + cdv.get(1) + "," + cdv.get(2));
                     
                     System.out.printf("Rolled %s, %s, %s\n",
                     		cdv.get(0), cdv.get(1), cdv.get(2));
@@ -73,10 +77,10 @@ public class Main {
                     }
 					
 					 // Roshan Basnet - code added to test the loop of it continues when balance still positive
-                    System.out.println("---- Debugging: Now balance: " + player.getBalance() + ". Bet: " + bet);
-                    System.out.println("---- Does balance exceeds limit by " + bet + "?: " + player.balanceExceedsLimitBy(bet));
-                    System.out.println("---- Is balance less than 200?: " + (player.getBalance() < 200));
-                    System.out.println("---- Will the loop continue?: " + (player.balanceExceedsLimitBy(bet) && player.getBalance()<200));
+                    //System.out.println("---- Debugging: Now balance: " + player.getBalance() + ". Bet: " + bet);
+                    //System.out.println("---- Does balance exceeds limit by " + bet + "?: " + player.balanceExceedsLimitBy(bet));
+                    //System.out.println("---- Is balance less than 200?: " + (player.getBalance() < 200));
+                    //System.out.println("---- Will the loop continue?: " + (player.balanceExceedsLimitBy(bet) && player.getBalance()<200));
                   
                     
                 } //while

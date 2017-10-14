@@ -11,6 +11,9 @@ public class Dice {
 	}
 
 	public DiceValue roll() {
+		
+		// Roshan Basnet
+		// This should modify the current DiceValue before returning it
 		return DiceValue.getRandom();
 	}		
 	
