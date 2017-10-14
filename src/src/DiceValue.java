@@ -26,7 +26,7 @@ public enum DiceValue {
 +		System.out.println("---Bug 4 detector: SPADE dice index: " + DiceValue.SPADE.ordinal());
 +		// The random method will only generate a random value starts from 0 to the pass-in value minus 1.
 +		// So if we want to randomly generate a number from 0 to 5 (index of SPADE). We should pass 6 (or DiceValue.SPADE.ordinal() + 1) as parameter
-		int random = RANDOM.nextInt(DiceValue.SPADE.ordinal());
+		int random = RANDOM.nextInt(DiceValue.SPADE.ordinal() + 1);
 		//System.out.println("---- Random value generated for dice value: " + random + ". Corresponding value: " + values()[random]);
 		return values()[random];
 	}
