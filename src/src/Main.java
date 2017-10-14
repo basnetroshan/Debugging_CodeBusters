@@ -46,7 +46,16 @@ public class Main {
                 			turn, player.getName(), bet, pick); 
                 	
                 	int winnings = game.playRound(player, pick, bet);
-                    cdv = game.getDiceValues();
+					
+					// Author: Roshan Basnet
+                	// Testing incorrect balance increase on winning
+                	System.out.println("----- Main.java: Start calculating winnings..." );
+					System.out.println("----- Main.java: Balance before play: " + player.getBalance());
+					
+                    System.out.println("----- Main.java: Winning amount: " + winnings);
+					System.out.println("----- Main.java: Balance after play: " + player.getBalance());
+					
+					cdv = game.getDiceValues();
                     
                     System.out.printf("Rolled %s, %s, %s\n",
                     		cdv.get(0), cdv.get(1), cdv.get(2));
