@@ -14,7 +14,8 @@ public class Dice {
 		
 		// Roshan Basnet
 		// This should modify the current DiceValue before returning it
-		return DiceValue.getRandom();
+		value = DiceValue.getRandom();
+		return value;
 	}		
 	
 	public String toString() {

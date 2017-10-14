@@ -53,14 +53,14 @@ public class Main {
 					//System.out.println("----- Main.java: Balance before play: " + player.getBalance());
 					
 					// Roshan Basnet Bug 3: DiceValues remain the same all the time
-                	System.out.println("--- BUG 3 detector: old dice values: " + cdv.get(0) + "," + cdv.get(1) + "," + cdv.get(2));
+                	//System.out.println("--- BUG 3 detector: old dice values: " + cdv.get(0) + "," + cdv.get(1) + "," + cdv.get(2));
 					int winnings = game.playRound(player, pick, bet);
 					
                     //System.out.println("----- Main.java: Winning amount: " + winnings);
 					//System.out.println("----- Main.java: Balance after play: " + player.getBalance());
 					
 					cdv = game.getDiceValues();
-					System.out.println("--- BUG 3 detector: new dice values: " + cdv.get(0) + "," + cdv.get(1) + "," + cdv.get(2));
+					//System.out.println("--- BUG 3 detector: new dice values: " + cdv.get(0) + "," + cdv.get(1) + "," + cdv.get(2));
                     
                     System.out.printf("Rolled %s, %s, %s\n",
                     		cdv.get(0), cdv.get(1), cdv.get(2));

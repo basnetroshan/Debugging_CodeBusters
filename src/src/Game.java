@@ -37,8 +37,11 @@ public class Game {
 		//System.out.println("----GAME.JAVA: Balance after betting "+ bet + ": " + player.getBalance());
 		    
 		int matches = 0;
+		//System.out.println("---Bug 3 detector: Rolling new dices");
 		for ( Dice d : dice) {
+			//System.out.println("--- Dice value before roll: " + d.getValue());
 			d.roll();
+			//System.out.println("--- Dice value after roll: " + d.getValue());
 			if (d.getValue().equals(pick)) { 
 				matches += 1;
 			}
@@ -51,7 +54,7 @@ public class Game {
 			//System.out.println("----GAME.JAVA: Player wins, his bet of " + bet + " should be returned to his balance here!");
 			
 			// The bellow method is called so that the bet amount can be added back to the player's balance on winning
-			//player.receiveBetReturned(bet);
+			player.receiveBetReturned(bet);
  			player.receiveWinnings(winnings);
 			//System.out.println("----GAME.JAVA: Player received winnings of " + winnings);
 			//System.out.println("----GAME.JAVA: Now player has balance of: " + player.getBalance());
