@@ -62,6 +62,21 @@ public class Main {
         }catch(Exception e){
         	System.out.println("Invalid bet! Bet set to " + bet);
         }
+		
+		// Bug 9: Number of times to play should be chosen by the player base on his interest. 
+        // Bug 9: It should be from 1 to 100, 5 by default
+        int num_of_play = 5;
+        System.out.print("How many times do you want to play the game?: ");
+        try{
+        	num_of_play = Integer.parseInt(console.readLine());
+        	if(num_of_play < 1 || num_of_play > 100){
+        		num_of_play = 5;
+        		throw new Exception();
+        	}
+        }catch(Exception e){
+        	System.out.println("Invalid number! Game plays 5 times by default!");
+        }
+
         Game game = new Game(d1, d2, d3);
         List<DiceValue> cdv = game.getDiceValues();
 
@@ -73,7 +88,7 @@ public class Main {
             int winCount = 0;
             int loseCount = 0;
             
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < num_of_play; i++)
             {
             	String name = playerName;
             	int balance = playerBalance;
