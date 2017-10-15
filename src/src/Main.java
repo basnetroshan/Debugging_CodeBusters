@@ -32,21 +32,36 @@ public class Main {
        }
 
         // Bug 7: Player should be allowed to enter his name and initialize his balance here
--        Player player = new Player("Fred", 100);
-+        System.out.print("Enter your name: ");
-+        String playerName = console.readLine();
-+        int playerBalance = 200;
-+        System.out.print("How much is your balance: ");
-+        try{
-+        	playerBalance = Integer.parseInt(console.readLine());
-+        	if(playerBalance < 0){
-+        		playerBalance = 200;
-+        		throw new Exception();
-+        	}
-+        }catch(Exception e){
-+        	System.out.println("Invalid balance! Balance now set to " + playerBalance);
-+        }
-+        Player player = new Player(playerName, playerBalance);
+        Player player = new Player("Fred", 100);
+        System.out.print("Enter your name: ");
+        String playerName = console.readLine();
+        int playerBalance = 100;
+        System.out.print("How much is your balance: ");
+        try{
+        	playerBalance = Integer.parseInt(console.readLine());
+        	if(playerBalance < 0){
+        		playerBalance = 100;
+        		throw new Exception();
+        	}
+        }catch(Exception e){
+        	System.out.println("Invalid balance! Balance now set to " + playerBalance);
+        }
+        Player player = new Player(playerName, playerBalance);
+
+		// Bug 8: Bet amount should be asked here
+        // Bug 8: Min bet and max bet also notified here
+        System.out.print("How much do you want to bet(Min: 5; Max: 50): ");
+        //Default bet = 5
+        int bet = 5;
+        try{
+        	bet = Integer.parseInt(console.readLine());
+        	if(bet < 5 || bet > 50){
+        		bet = 5;
+        		throw new Exception();
+        	}
+        }catch(Exception e){
+        	System.out.println("Invalid bet! Bet set to " + bet);
+        }
         Game game = new Game(d1, d2, d3);
         List<DiceValue> cdv = game.getDiceValues();
 
@@ -65,7 +80,7 @@ public class Main {
             	int limit = 0;
                 player = new Player(name, balance);
                 player.setLimit(limit);
-                int bet = 5;
+                
 
                 System.out.println(String.format("Start Game %d: ", i));
                 System.out.println(String.format("%s starts with balance %d, limit %d", 
